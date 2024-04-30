@@ -10,12 +10,11 @@ export default ({ config }: {config: webpack.Configuration}) => {
         entry: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
     };
-   if(config.resolve && config.resolve.modules && config.resolve.extensions && config.module && config.module.rules) {
     config.resolve.modules.push(paths.src);
     config.resolve.extensions.push('.ts', '.tsx');
 
-    // TODO: delete any
-    config.module.rules = config.module.rules.map((rule: any) => {
+    // eslint-disable-next-line no-param-reassign
+    config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
         if (/svg/.test(rule.test as string)) {
             return { ...rule, exclude: /\.svg$/i };
         }
@@ -30,5 +29,4 @@ export default ({ config }: {config: webpack.Configuration}) => {
     config.module.rules.push(buildCssLoader(true));
 
     return config;
-   }
 };
