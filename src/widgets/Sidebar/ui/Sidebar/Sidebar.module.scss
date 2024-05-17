@@ -33,7 +33,34 @@
 
 .collapseButton{
     position: absolute;
-    bottom: 40px;
+    bottom: 30px;
     right: -32px;
 }
 
+.links {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-left: 30px;
+    margin-top: 20px;
+    transition: 1;
+}
+
+.appLink{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.icon{
+    margin-right: 10px;
+    fill: var(--inverted-primary-color); 
+}
+
+.iconRed{
+    fill: red;
+}
+
+.p {
+    transition: opacity 0.3s ease 0.3s;
+}
